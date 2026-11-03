@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineShop - Catálogo de Películas</title>
+  <!-- Enlazamos tu hoja de estilos que está dentro de la carpeta css/ -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Cabecera de la página -->
+  <header>
+    <h1>🎬 CineShop</h1>
+    
+    <!-- Buscador por texto -->
+    <div class="buscador-container">
+      <input type="text" id="input-busqueda" placeholder="Buscar película por nombre...">
+    </div>
+
+    <!-- Botones de navegación o accesos rápidos -->
+    <div class="acciones-header">
+      <button id="btn-carrito">🛒 Carrito (<span id="contador-carrito">0</span>)</button>
+      <button id="btn-modo-oscuro">🌙</button>
+    </div>
+  </header>
+
+  <!-- Filtros por categoría -->
+  <section class="filtros-container">
+    <button class="btn-filtro" data-categoria="todos">Todas</button>
+    <button class="btn-filtro" data-categoria="Acción">Acción</button>
+    <button class="btn-filtro" data-categoria="Terror">Terror</button>
+    <button class="btn-filtro" data-categoria="Drama">Drama</button>
+    <button class="btn-filtro" data-categoria="Romance">Romance</button>
+    <button class="btn-filtro" data-categoria="Animación">Animación</button>
+    <button class="btn-filtro" data-categoria="favoritos">Favoritos ❤️</button>
+  </section>
+
+  <!-- Contenedor principal donde ui.js inyectará las cards de películas con .map() -->
+  <main>
+    <section id="contenedor-productos" class="grid-productos">
+      <!-- Aquí se cargan dinámicamente las películas desde JS -->
+    </section>
+
+<!-- 🛒 SECCIÓN DEL CARRITO FLOTANTE -->
+    <section id="carrito-container" class="carrito-seccion">
+      <div class="carrito-header-interno">
+        <h2>Tus Compras</h2>
+        <button id="btn-cerrar-carrito">❌</button>
+      </div>
+
+      <!-- Aquí es donde js/carrito.js inyectará los productos -->
+      <div id="contenedor-carrito-items">
+        <p class="carrito-vacio">El carrito está vacío 🛒</p>
+      </div>
+
+      <div class="carrito-footer">
+        <h3>Total: <span id="total-carrito">$0</span></h3>
+      </div>
+    </section>
+  </main>
+
+
+<!-- Formulario de finalización de compra -->
+<div id="checkout-container" class="checkout-seccion" style="margin-top: 15px;">
+  <h3>Finalizar Compra</h3>
+  <form id="form-checkout">
+  <input type="text" id="nombre" placeholder="Nombre y Apellido">
+  <input type="email" id="email" placeholder="Correo electrónico">
+  <input type="tel" id="telefono" placeholder="Teléfono">
+  <input type="text" id="direccion" placeholder="Dirección de envío">
+    <button type="submit" id="btn-finalizar-compra">Confirmar Compra</button>
+  </form>
+  <p id="mensaje-exito" style="color: green; font-weight: bold; margin-top: 10px;"></p>
+</div>
+
+  <!-- IMPORTANTE: El type="module" es obligatorio para que funcionen los import/export de JS -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

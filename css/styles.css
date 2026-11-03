@@ -1,0 +1,221 @@
+/* ========================================== */
+/* ESTILOS CINEMATOGRÁFICOS - CINESHOP        */
+/* ========================================== */
+
+/* Estilos base por defecto (Modo Claro) */
+body {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* MODO OSCURO (Se activa dinámicamente con JS y localStorage) */
+body.dark-mode {
+  background-color: #121212; /* Tu fondo oscuro favorito para cine */
+  color: #f5f5f5;
+}
+
+body.dark-mode .card-producto,
+body.dark-mode .pelicula-card,
+body.dark-mode #carrito-container {
+  background-color: #1f1f1f;
+  color: #f5f5f5;
+  border: 1px solid #444;
+}
+
+/* Header llamativo */
+header {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botones de categorías y filtros con estilo moderno */
+.btn-filtro {
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-filtro:hover, .btn-filtro.activo {
+  background-color: #e50914; /* Rojo tipo Netflix */
+  border-color: #e50914;
+  transform: translateY(-2px);
+}
+
+/* ========================================== */
+/* GRILLA Y TARJETAS ORDENADAS (CINESHOP)     */
+/* ========================================== */
+
+/* Contenedor general en grilla */
+#contenedor-productos {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: 20px !important;
+  padding: 20px !important;
+}
+
+/* Tarjeta principal (coincide con tu HTML: .card-producto) */
+.card-producto, .pelicula-card {
+  background-color: #1e1e1e !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  text-align: center !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card-producto:hover, .pelicula-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3) !important; /* Sombra rojiza sutil */
+}
+
+/* Imagen de la película (prolija, sin deformarse y del mismo alto) */
+.card-producto img, .pelicula-card img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Contenedor de la información interna */
+.info-card {
+  padding: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+/* Textos y botones dentro de la tarjeta */
+.info-card h3 {
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  margin: 0 !important;
+}
+
+.info-card .categoria {
+  color: #aaa !important;
+  font-size: 0.85rem !important;
+}
+
+.info-card .precio {
+  color: #4cd137 !important;
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+  margin: 5px 0 !important;
+}
+
+/* Botones de acción (Comprar / Favorito) */
+button {
+  cursor: pointer;
+}
+
+.btn-agregar, .btn-comprar {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+  background-color: #f6121d;
+}
+
+/* Botón de favorito con onda */
+.btn-favorito {
+  background: transparent;
+  border: 2px solid #555;
+  font-size: 18px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-favorito.activo {
+  background-color: #ff4757;
+  border-color: #ff4757;
+  color: white;
+}
+
+/* Inputs de búsqueda y formulario */
+input[type="text"], input[type="email"] {
+  background-color: #2b2b2b;
+  border: 1px solid #444;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #e50914;
+}
+
+/* ========================================== */
+/* CONTENEDOR DEL CARRITO                     */
+/* ========================================== */
+
+#carrito-container {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Oculto fuera de la pantalla a la derecha */
+  width: 350px;
+  height: 100vh;
+  background-color: #1e1e1e !important; /* Fondo oscuro elegante */
+  color: #f5f5f5 !important;           /* Letras claras */
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.7);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Clase que se activa para mostrar el carrito */
+#carrito-container.abierto {
+  right: 0; 
+}
+
+/* Asegurar que todos los textos dentro del carrito se lean bien */
+#carrito-container h3,
+#carrito-container h4,
+#carrito-container p,
+#carrito-container label {
+  color: #f5f5f5 !important;
+}
+
+/* Estilo para los ítems individuales dentro del carrito */
+.item-carrito {
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.item-carrito p, .item-carrito h4 {
+  color: #ffffff !important;
+  margin: 0;
+}
