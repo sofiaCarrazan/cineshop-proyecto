@@ -4,7 +4,7 @@ export const peliculas = [
     nombre: "27 Dresses",
     categoria: "Romance",
     precio: 5500,
-    imagen: "./imagenes/romance1.jpeg" // Asegurate de tener las imágenes o placeholders listos
+    imagen: "./imagenes/romance1.jpeg" 
   },
   {
     id: 2,

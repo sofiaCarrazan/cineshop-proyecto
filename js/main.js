@@ -102,5 +102,5 @@ function activarModoOscuro() {
     console.error("¡No se encontró el botón #btn-modo-oscuro en el DOM!");
   }
 }
-
+activarModoOscuro();
 document.addEventListener("DOMContentLoaded", inicializarApp);

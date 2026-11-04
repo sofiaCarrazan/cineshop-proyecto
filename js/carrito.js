@@ -36,7 +36,7 @@ export function agregarAlCarrito(peliculas, idProducto) {
 
   actualizarCarritoUI(peliculas);
 }
-// Función para manejar las acciones dentro del carrito (sumar, restar, eliminar)
+// Función para manejar las acciones dentro del carrito 
 export function manejarAccionesCarrito(e, peliculas) {
   const id = Number(e.target.dataset.id);
 
